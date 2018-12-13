@@ -1,0 +1,19 @@
+<app-header></app-header>
+<app-filter-data (messageEvent)="receiveMessage($event)"></app-filter-data>
+<div class="user-table">
+  <table style="width:50%">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Grade</th>
+      <th>Subject</th>
+    </tr>
+    <tr *ngFor="let user of userArray | filter: userId;">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.grade}}</td>
+      <td>{{user.subject}}</td>
+    </tr>
+  </table>
+</div>
+<app-data-detail></app-data-detail>

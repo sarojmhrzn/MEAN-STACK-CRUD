@@ -1,0 +1,10 @@
+<div class="col-wrap">
+  <form action="" class="filter-form">
+    <input type="text" [(ngModel)]="userId" name="userId" (ngModelChange)="sendFilter()" placeholder="filter by id">
+  </form>
+
+  <ul>
+    <li><button (click)="addUser()">Add</button></li>
+    <li><button (click)="removeUser()">Remove</button></li>
+  </ul>
+</div>
