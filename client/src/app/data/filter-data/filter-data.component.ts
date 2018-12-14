@@ -27,6 +27,36 @@ export class FilterDataComponent implements OnInit {
     localStorage.setItem('filterText', this.userId);
   }
 
+  addUser() {
+    if (localStorage.getItem('name') !== null && localStorage.getItem('name') !== '') {
+      const userObj = {
+        name: localStorage.getItem('name'),
+        email: localStorage.getItem('email'),
+        grade: localStorage.getItem('grade'),
+        subject: localStorage.getItem('subject'),
+        joinedDate: localStorage.getItem('joinedDate'),
+        address: {
+          place: localStorage.getItem('place'),
+          city: localStorage.getItem('city'),
+          country: localStorage.getItem('country'),
+          zip: localStorage.getItem('zip'),
+        }
+      };
+
+      this.dataService.createUser(userObj)
+        .subscribe(response => {
+          localStorage.removeItem('name');
+          localStorage.removeItem('addUser');
+          this.router.navigateByUrl('/analysis', { skipLocationChange: true }).then(() =>
+            this.router.navigate(['/data']));
+        }, err => {
+        });
+
+    } else {
+      this.inputEvent.emit(null);
+    }
+  }
+
   removeUser() {
     this.dataService.deleteUser(this.removeId)
       .subscribe(response => {

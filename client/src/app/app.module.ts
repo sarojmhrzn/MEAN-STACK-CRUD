@@ -21,6 +21,9 @@ import { FilterDataComponent } from './data/filter-data/filter-data.component';
 // filter
 import { UserIdFilterPipe } from './shared/filter/userIdFilterPipe';
 
+// Third party library
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { UserIdFilterPipe } from './shared/filter/userIdFilterPipe';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
   ],
   providers: [],

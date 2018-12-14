@@ -30,7 +30,7 @@ function create(userParams) {
 function findAll(query) {
   return new Promise((resolve, reject) => {
     const perPage = +query.limit;
-    const page = Math.max(0, +query.pageno);
+    const page = Math.max(0, +query.pageno - 1);
 
     User.find({})
       .limit(perPage)

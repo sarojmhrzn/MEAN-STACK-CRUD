@@ -1,14 +1,44 @@
 <div class="row">
   <ul>
-    <li>ID: <input type="text" [ngModel]="userData.id" name="id" disabled></li>
-    <li>Name: <input type="text" [ngModel]="userData.name" name="name" (change)="updateUserDetail('name', $event)"></li>
-    <li>Grade: <input type="text" [ngModel]="userData.grade" name="grade" (change)="updateUserDetail('grade', $event)"></li>
-    <li>Email: <input type="text" [ngModel]="userData.email" name="email" (change)="updateUserDetail('email', $event)"></li>
-    <li>Subject: <input type="text" [ngModel]="userData.subject" name="subject" (change)="updateUserDetail('subject', $event)"></li>
-    <li>Date Joined: <input type="text" [ngModel]="userData.joinedDate" name="joinedDate" (change)="updateUserDetail('joinedDate', $event)"></li>
-    <li>Address: <input type="text" [ngModel]="userData.address.place" name="place" (change)="updateUserDetail('place', $event)"></li>
-    <li>City: <input type="text" [ngModel]="userData.address.city" name="city" (change)="updateUserDetail('city', $event)"></li>
-    <li>Country: <input type="text" [ngModel]="userData.address.country" name="country" (change)="updateUserDetail('country', $event)"></li>
-    <li>Zip: <input type="text" [ngModel]="userData.address.zip" name="zip" (change)="updateUserDetail('zip', $event)"></li>
+    <li>
+      <label>ID:</label> 
+      <input type="text" [ngModel]="userData.id" name="id" disabled>
+    </li>
+    <li>
+      <label>Name:</label> 
+      <input type="text" [ngModel]="userData.name" name="name" (change)="updateUserDetail('name', $event)">
+    </li>
+    <li>
+      <label>Grade:</label> 
+      <input type="text" [ngModel]="userData.grade" name="grade" (change)="updateUserDetail('grade', $event)">
+    </li>
+    <li>
+      <label>Email:</label> 
+      <input type="text" [ngModel]="userData.email" name="email" (change)="updateUserDetail('email', $event)">
+    </li>
+    <li>
+      <label>Subject:</label> 
+      <input type="text" [ngModel]="userData.subject" name="subject" (change)="updateUserDetail('subject', $event)">
+    </li>
+    <li>
+      <label>Date Joined:</label> 
+      <input type="text" [ngModel]="userData.joinedDate" name="joinedDate" (change)="updateUserDetail('joinedDate', $event)">
+    </li>
+    <li>
+      <label>Address:</label> 
+      <input type="text" [ngModel]="userData.place" name="place" (change)="updateUserDetail('place', $event)">
+    </li>
+    <li>
+      <label>City:</label> 
+      <input type="text" [ngModel]="userData.city" name="city" (change)="updateUserDetail('city', $event)">
+    </li>
+    <li>
+      <label>Country:</label> 
+      <input type="text" [ngModel]="userData.country" name="country" (change)="updateUserDetail('country', $event)">
+    </li>
+    <li>
+      <label>Zip:</label> 
+      <input type="text" [ngModel]="userData.zip" name="zip" (change)="updateUserDetail('zip', $event)">
+    </li>
   </ul>
 </div>
