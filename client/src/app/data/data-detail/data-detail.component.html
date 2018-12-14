@@ -1,3 +1,14 @@
-<p>
-  data-detail works!
-</p>
+<div class="row">
+  <ul>
+    <li>ID: <input type="text" [ngModel]="userData.id" name="id" disabled></li>
+    <li>Name: <input type="text" [ngModel]="userData.name" name="name" (change)="updateUserDetail('name', $event)"></li>
+    <li>Grade: <input type="text" [ngModel]="userData.grade" name="grade" (change)="updateUserDetail('grade', $event)"></li>
+    <li>Email: <input type="text" [ngModel]="userData.email" name="email" (change)="updateUserDetail('email', $event)"></li>
+    <li>Subject: <input type="text" [ngModel]="userData.subject" name="subject" (change)="updateUserDetail('subject', $event)"></li>
+    <li>Date Joined: <input type="text" [ngModel]="userData.joinedDate" name="joinedDate" (change)="updateUserDetail('joinedDate', $event)"></li>
+    <li>Address: <input type="text" [ngModel]="userData.address.place" name="place" (change)="updateUserDetail('place', $event)"></li>
+    <li>City: <input type="text" [ngModel]="userData.address.city" name="city" (change)="updateUserDetail('city', $event)"></li>
+    <li>Country: <input type="text" [ngModel]="userData.address.country" name="country" (change)="updateUserDetail('country', $event)"></li>
+    <li>Zip: <input type="text" [ngModel]="userData.address.zip" name="zip" (change)="updateUserDetail('zip', $event)"></li>
+  </ul>
+</div>

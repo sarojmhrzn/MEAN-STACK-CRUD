@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-filter-data (messageEvent)="receiveMessage($event)"></app-filter-data>
+<app-filter-data (inputEvent)="receiveInput($event)" [userId]="userId" [removeId]="removeId"></app-filter-data>
 <div class="user-table">
   <table style="width:50%">
     <tr>
@@ -8,7 +8,7 @@
       <th>Grade</th>
       <th>Subject</th>
     </tr>
-    <tr *ngFor="let user of userArray | filter: userId;">
+    <tr *ngFor="let user of userArray | filter: userId;" (click)="showDetail(user)">
       <td>{{user.id}}</td>
       <td>{{user.name}}</td>
       <td>{{user.grade}}</td>
@@ -16,4 +16,4 @@
     </tr>
   </table>
 </div>
-<app-data-detail></app-data-detail>
+<app-data-detail *ngIf="userData !== undefined" [userData]="userData"></app-data-detail>

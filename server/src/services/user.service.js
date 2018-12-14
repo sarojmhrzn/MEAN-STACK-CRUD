@@ -31,14 +31,8 @@ function findAll(query) {
   return new Promise((resolve, reject) => {
     const perPage = +query.limit;
     const page = Math.max(0, +query.pageno);
-    const params = {
-      "_id": "",
-      "name": "",
-      "grade": "",
-      "subject": ""
-    };
 
-    User.find({}, params)
+    User.find({})
       .limit(perPage)
       .skip(perPage * page)
       .then(userListed => {
@@ -73,6 +67,28 @@ function findById(params) {
  * @param id
  * @returns {*}
  */
+
+function update(userId, params) {
+  return new Promise((resolve, reject) => {
+    User.update({
+      '_id': userId
+    }, {
+      '$set': params
+    })
+      .then(updatedUser => {
+        resolve(updatedUser)
+      })
+      .catch(err => {
+        reject(err);
+      })
+  })
+}
+
+/**
+ *
+ * @param id
+ * @returns {*}
+ */
 function findAndDelete(params) {
   return new Promise((resolve, reject) => {
     User.findByIdAndDelete(params)
@@ -90,7 +106,7 @@ function findAndDelete(params) {
  * @returns Count
  */
 function countAll() {
-  return User.count();
+  return User.countDocuments();
 }
 
 module.exports = {
@@ -98,5 +114,6 @@ module.exports = {
   findAll,
   findById,
   findAndDelete,
-  countAll
+  countAll,
+  update
 };

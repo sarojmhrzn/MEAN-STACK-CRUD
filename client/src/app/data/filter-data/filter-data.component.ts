@@ -1,22 +1,39 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-filter-data',
   templateUrl: './filter-data.component.html',
-  styleUrls: ['./filter-data.component.css']
+  styleUrls: ['./filter-data.component.css'],
+  providers: [DataService]
 })
 export class FilterDataComponent implements OnInit {
 
-  userId: string;
+  @Input() userId: string;
+  @Input() removeId: string;
 
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() inputEvent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private dataService: DataService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
-  sendFilter() {
-    this.messageEvent.emit(this.userId);
+  sendInputText() {
+    this.inputEvent.emit(this.userId);
+    localStorage.setItem('filterText', this.userId);
+  }
+
+  removeUser() {
+    this.dataService.deleteUser(this.removeId)
+      .subscribe(response => {
+        this.router.navigateByUrl('/analysis', { skipLocationChange: true }).then(() =>
+          this.router.navigate(['/data']));
+      }, err => {
+        console.log(err);
+      });
   }
 }

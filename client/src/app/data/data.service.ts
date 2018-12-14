@@ -50,6 +50,14 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  updateUser(userId, userObj) {
+    return this.http.patch(this.API_BASE_URL + '/user/' + userId, userObj)
+      .map(response => {
+        return (response.json());
+      })
+      .catch(this.handleError);
+  }
+
   deleteUser(userId) {
     return this.http.delete(this.API_BASE_URL + '/user/' + userId)
       .map(response => {

@@ -13,10 +13,17 @@ export class ListDataComponent implements OnInit {
   userArray: Array<any> = [];
   pageno: number;
   userId: string;
+  removeId: string;
+  userData: any;
+  localFilterText: string;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.localFilterText = localStorage.getItem('filterText');
+    if (this.localFilterText !== null) {
+      this.userId = this.localFilterText;
+    }
     this.getUsers();
   }
 
@@ -29,7 +36,12 @@ export class ListDataComponent implements OnInit {
       });
   }
 
-  receiveMessage(event) {
+  showDetail(user) {
+    this.userData = user;
+    this.removeId = user.id;
+  }
+
+  receiveInput(event) {
     this.userId = event;
   }
 

@@ -15,8 +15,7 @@ const UserSchema = new Schema({
     grade: {
         type: Number,
         index: true,
-        required: true,
-
+        required: true
     },
     email: {
         type: String,
@@ -37,7 +36,7 @@ const UserSchema = new Schema({
     address: {
         place: {
             type: String,
-            required: true,
+            required: true
         },
         city: {
             type: String
